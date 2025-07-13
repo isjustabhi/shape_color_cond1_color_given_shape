@@ -14,20 +14,6 @@ P(shape, color) = P(color | shape) × P(shape)
 
 ---
 
-## 📂 Folder Structure
-```
-.
-├── scripts/
-│   ├── train_color_mapper.py         # Training script
-│   └── view_results.ipynb           # Visualize input/output pairs
-├── color_mapper.py                  # U-Net-like model (1-channel → 3-channel)
-├── color_dataset.py                 # Dataset for grayscale input + RGB targets
-├── samples/cond1/                   # Saved outputs every N epochs
-└── models/                          # Trained model weights
-```
-
----
-
 ## 🧠 Model Architecture
 ### `ColorMapper`
 - Input: 1×64×64 grayscale image
@@ -60,6 +46,9 @@ samples/cond1/input_gray_epochXX.png
 Use `view_results.ipynb` to compare grayscale inputs and predicted color outputs.
 
 Unseen combinations such as **green triangle** or **blue square** indicate generalization ability.
+<img width="266" height="134" alt="image" src="https://github.com/user-attachments/assets/c0acebd8-8a99-439b-886a-bfef1aa1eceb" />
+<img width="266" height="134" alt="image" src="https://github.com/user-attachments/assets/c913cb72-8c63-46cd-a777-364396dc595c" />
+<img width="266" height="134" alt="image" src="https://github.com/user-attachments/assets/fb175a72-d101-4b56-b227-4903a14c8f14" />
 
 ---
 
@@ -67,15 +56,6 @@ Unseen combinations such as **green triangle** or **blue square** indicate gener
 - Accurate shape-to-color prediction from grayscale inputs
 - Sharp color boundaries
 - Generalization to unseen combinations in some cases
-
----
-
-## 🔄 Next Steps
-Try training alternate factorizations:
-- `P(color) × P(shape | color)`
-- Joint `P(shape, color)` as a single VAE
-
-Then compare all four models under a fixed training budget.
 
 ---
 
